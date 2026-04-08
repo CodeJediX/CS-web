@@ -2026,91 +2026,312 @@
       box-shadow: 0 12px 36px var(--gold-glow);
     }
 
-    /* =============================================
-       GALLERY SECTION
-    ============================================= */
-    #gallery {
-      background: linear-gradient(180deg, #07070d 0%, var(--bg-deep) 100%);
-    }
+/* =============================================
+  GALLERY SECTION — REDESIGNED
+============================================= */
+#gallery {
+  background: linear-gradient(180deg, #07070d 0%, var(--bg-deep) 100%);
+}
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto;
-      gap: 16px;
-    }
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
 
-    .gallery-item {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      position: relative;
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all var(--transition);
-      cursor: pointer;
-    }
+.gallery-filter-btn {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 9px 22px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition);
+}
 
-    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; min-height: 320px; }
+.gallery-filter-btn:hover {
+  border-color: var(--border-bright);
+  color: var(--text-primary);
+}
 
-    .gallery-item:hover {
-      border-color: var(--border-bright);
-      transform: scale(0.98);
-    }
+.gallery-filter-btn.active {
+  background: var(--gradient-gold);
+  color: #000;
+  border-color: transparent;
+}
 
-    .gallery-item-inner {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, var(--bg-card2), var(--bg-elevated));
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
+.gallery-grid-new {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 14px;
+}
 
-    .gallery-item-inner i {
-      font-size: 40px;
-      color: rgba(250,164,26,0.15);
-    }
+.g-item {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: border-color var(--transition), transform var(--transition);
+}
 
-    .gallery-item-inner .gallery-label {
-      font-family: var(--font-display);
-      font-size: 10px;
-      letter-spacing: 3px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
+.g-item.wide  { grid-column: span 2; }
+.g-item.tall  { grid-row: span 2; }
+.g-item.big   { grid-column: span 2; grid-row: span 2; }
 
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(5,5,7,0.85);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      opacity: 0;
-      transition: opacity var(--transition);
-    }
+.g-item:hover {
+  border-color: var(--border-bright);
+}
 
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
+.g-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+}
 
-    .gallery-overlay i {
-      font-size: 24px;
-      color: var(--gold);
-    }
+.g-item:hover img {
+  transform: scale(1.06);
+}
 
-    .gallery-overlay span {
-      font-family: var(--font-heading);
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
+.g-overlay-new {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity var(--transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+}
+
+.g-item:hover .g-overlay-new {
+  opacity: 1;
+}
+
+.g-cat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(250,164,26,0.25);
+  color: var(--gold);
+  border: 1px solid rgba(250,164,26,0.3);
+  width: fit-content;
+  margin-bottom: 8px;
+}
+
+.g-title-new {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  transform: translateY(8px);
+  opacity: 0;
+  transition: all 0.35s ease;
+}
+
+.g-item:hover .g-title-new {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.g-cat-badge {
+  transform: translateY(8px);
+  opacity: 0;
+  transition: all 0.35s ease 0.05s;
+}
+
+.g-item:hover .g-cat-badge {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.g-expand-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all var(--transition);
+  backdrop-filter: blur(8px);
+}
+
+.g-item:hover .g-expand-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* LIGHTBOX */
+#gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  padding: 40px;
+  backdrop-filter: blur(12px);
+}
+
+#gallery-lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-inner {
+  position: relative;
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.lightbox-img-wrap {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.lightbox-img-wrap img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+  background: #000;
+}
+
+.lightbox-caption {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lightbox-caption .g-cat-badge {
+  opacity: 1;
+  transform: none;
+}
+
+.lightbox-caption-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 28px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  z-index: 1000;
+}
+
+.lightbox-close:hover {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+}
+
+.lightbox-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  z-index: 1000;
+}
+
+.lightbox-nav:hover {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+}
+
+#lightbox-prev { left: 24px; }
+#lightbox-next { right: 24px; }
+
+.lightbox-counter {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Gallery responsive */
+@media (max-width: 900px) {
+  .gallery-grid-new {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+  .g-item.big { grid-column: span 2; }
+  .g-item.wide { grid-column: span 2; }
+  .g-item.tall { grid-row: span 2; }
+}
+
+@media (max-width: 540px) {
+  .gallery-grid-new {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 140px;
+  }
+  .lightbox-nav { display: none; }
+}
 
     /* =============================================
        RESPONSIVE
@@ -2984,88 +3205,116 @@
     </div>
   </section>
 
-  <!-- =============================================
-       GALLERY
-  ============================================= -->
-  <section id="gallery" class="section-pad">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Gallery</div>
-        <h2 class="section-title">Our <span>Highlights</span></h2>
-        <p class="section-subtitle">A glimpse into the energy, community, and experiences that define IEEE CS KDU.</p>
-        <div class="gold-divider"></div>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="gallery-item reveal">
-<div class="gallery-item-inner" style="padding:0;">
-    <img src="artha01.jpg" alt="HackBoost 2024"
-      style="width:100%; height:100%; object-fit:cover; display:block;" />
-  </div>
-          <div class="gallery-overlay">
-            <i class="fa-solid fa-expand"></i>
-            <span>Artha 2.0</span>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal reveal-delay-1">
-<div class="gallery-item-inner" style="padding:0;">
-    <img src="res.jpg" alt="HackBoost 2024"
-      style="width:100%; height:100%; object-fit:cover; display:block;" />
-  </div>
-          <div class="gallery-overlay">
-            <i class="fa-solid fa-expand"></i>
-            <span>Respawn</span>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal reveal-delay-2">
-<div class="gallery-item-inner" style="padding:0;">
-    <img src="agm.jpg" alt="HackBoost 2024"
-      style="width:100%; height:100%; object-fit:cover; display:block;" />
-  </div>
-          <div class="gallery-overlay">
-            <i class="fa-solid fa-expand"></i>
-            <span>IEEE CS AGM 2026</span>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal reveal-delay-1">
-<div class="gallery-item-inner" style="padding:0;">
-    <img src="artha02.jpg" alt="HackBoost 2024"
-      style="width:100%; height:100%; object-fit:cover; display:block;" />
-  </div>
-          <div class="gallery-overlay">
-            <i class="fa-solid fa-expand"></i>
-            <span>Artha 2.0</span>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal reveal-delay-2">
-<div class="gallery-item-inner" style="padding:0;">
-    <img src="tech.jpg" alt="HackBoost 2024"
-      style="width:100%; height:100%; object-fit:cover; display:block;" />
-  </div>
-          <div class="gallery-overlay">
-            <i class="fa-solid fa-expand"></i>
-            <span>Workshop</span>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal reveal-delay-3">
-<div class="gallery-item-inner" style="padding:0;">
-    <img src="pixel.JPG" alt="HackBoost 2024"
-      style="width:100%; height:100%; object-fit:cover; display:block;" />
-  </div>
-          <div class="gallery-overlay">
-            <i class="fa-solid fa-expand"></i>
-            <span>Pixel Wave</span>
-          </div>
-        </div>
-      </div>
+<!-- =============================================
+     GALLERY SECTION — REDESIGNED
+============================================= -->
+<section id="gallery" class="section-pad">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Gallery</div>
+      <h2 class="section-title">Our <span>Highlights</span></h2>
+      <p class="section-subtitle">A glimpse into the energy, community, and experiences that define IEEE CS KDU.</p>
+      <div class="gold-divider"></div>
     </div>
-  </section>
 
+    <!-- Filter Buttons -->
+    <div class="gallery-filters">
+      <button class="gallery-filter-btn active" data-cat="all">All</button>
+      <button class="gallery-filter-btn" data-cat="event">Events</button>
+      <button class="gallery-filter-btn" data-cat="workshop">Workshops</button>
+      <button class="gallery-filter-btn" data-cat="competition">Competitions</button>
+      <button class="gallery-filter-btn" data-cat="team">Team</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid-new">
+
+      <!-- Item 1 — BIG (2x2) -->
+      <div class="g-item big reveal" data-cat="event"
+           data-src="artha01.jpg" data-title="Artha 2.0" data-category="Event">
+        <img src="artha01.jpg" alt="Artha 2.0" />
+        <div class="g-overlay-new">
+          <div class="g-cat-badge"><i class="fa-solid fa-circle" style="font-size:6px;"></i> Event</div>
+          <div class="g-title-new">Artha 2.0 — Annual Flagship</div>
+        </div>
+        <div class="g-expand-btn"><i class="fa-solid fa-expand"></i></div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="g-item reveal reveal-delay-1" data-cat="workshop"
+           data-src="res.jpg" data-title="Respawn" data-category="Workshop">
+        <img src="res.jpg" alt="Respawn" />
+        <div class="g-overlay-new">
+          <div class="g-cat-badge"><i class="fa-solid fa-circle" style="font-size:6px;"></i> Workshop</div>
+          <div class="g-title-new">Respawn</div>
+        </div>
+        <div class="g-expand-btn"><i class="fa-solid fa-expand"></i></div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="g-item reveal reveal-delay-2" data-cat="team"
+           data-src="agm.jpg" data-title="IEEE CS AGM 2026" data-category="Team">
+        <img src="agm.jpg" alt="IEEE CS AGM 2026" />
+        <div class="g-overlay-new">
+          <div class="g-cat-badge"><i class="fa-solid fa-circle" style="font-size:6px;"></i> Team</div>
+          <div class="g-title-new">IEEE CS AGM 2026</div>
+        </div>
+        <div class="g-expand-btn"><i class="fa-solid fa-expand"></i></div>
+      </div>
+
+      <!-- Item 4 — WIDE (2x1) -->
+      <div class="g-item wide reveal reveal-delay-1" data-cat="event"
+           data-src="artha02.jpg" data-title="Artha 2.0 — Stage Moments" data-category="Event">
+        <img src="artha02.jpg" alt="Artha 2.0 Stage Moments" />
+        <div class="g-overlay-new">
+          <div class="g-cat-badge"><i class="fa-solid fa-circle" style="font-size:6px;"></i> Event</div>
+          <div class="g-title-new">Artha 2.0 — Stage Moments</div>
+        </div>
+        <div class="g-expand-btn"><i class="fa-solid fa-expand"></i></div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="g-item reveal reveal-delay-2" data-cat="workshop"
+           data-src="tech.jpg" data-title="Tech Workshop" data-category="Workshop">
+        <img src="tech.jpg" alt="Tech Workshop" />
+        <div class="g-overlay-new">
+          <div class="g-cat-badge"><i class="fa-solid fa-circle" style="font-size:6px;"></i> Workshop</div>
+          <div class="g-title-new">Tech Workshop</div>
+        </div>
+        <div class="g-expand-btn"><i class="fa-solid fa-expand"></i></div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="g-item reveal reveal-delay-3" data-cat="competition"
+           data-src="pixel.JPG" data-title="Pixel Wave" data-category="Competition">
+        <img src="pixel.JPG" alt="Pixel Wave" />
+        <div class="g-overlay-new">
+          <div class="g-cat-badge"><i class="fa-solid fa-circle" style="font-size:6px;"></i> Competition</div>
+          <div class="g-title-new">Pixel Wave</div>
+        </div>
+        <div class="g-expand-btn"><i class="fa-solid fa-expand"></i></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="gallery-lightbox">
+  <button class="lightbox-close" id="lightbox-close"><i class="fa-solid fa-xmark"></i></button>
+  <button class="lightbox-nav" id="lightbox-prev"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="lightbox-nav" id="lightbox-next"><i class="fa-solid fa-chevron-right"></i></button>
+  <div class="lightbox-inner">
+    <div class="lightbox-img-wrap">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+    <div class="lightbox-caption">
+      <div class="g-cat-badge" id="lightbox-cat"></div>
+      <div class="lightbox-caption-title" id="lightbox-title"></div>
+    </div>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+</div>
   <!-- =============================================
        JOIN CTA SECTION
   ============================================= -->
@@ -3548,6 +3797,81 @@
     // SMOOTH ACTIVE SECTION HIGHLIGHT
     // =============================================
     // Already handled in scroll event listener above
+    // =============================================
+// GALLERY — FILTER + LIGHTBOX
+// =============================================
+(function() {
+  const items = Array.from(document.querySelectorAll('.g-item'));
+  const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+  const lightbox = document.getElementById('gallery-lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbTitle = document.getElementById('lightbox-title');
+  const lbCat = document.getElementById('lightbox-cat');
+  const lbCounter = document.getElementById('lightbox-counter');
+  let currentIndex = 0;
+  let visibleItems = [...items];
+
+  // Filter
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      items.forEach(item => {
+        const show = cat === 'all' || item.dataset.cat === cat;
+        item.style.opacity = show ? '1' : '0.2';
+        item.style.pointerEvents = show ? '' : 'none';
+        item.style.transition = 'opacity 0.4s ease';
+      });
+      visibleItems = cat === 'all' ? [...items] : items.filter(i => i.dataset.cat === cat);
+    });
+  });
+
+  // Open lightbox
+  function openLightbox(index) {
+    currentIndex = index;
+    const item = visibleItems[index];
+    lbImg.src = item.dataset.src;
+    lbImg.alt = item.dataset.title;
+    lbTitle.textContent = item.dataset.title;
+    lbCat.textContent = item.dataset.category;
+    lbCounter.textContent = (index + 1) + ' / ' + visibleItems.length;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function navigate(dir) {
+    currentIndex = (currentIndex + dir + visibleItems.length) % visibleItems.length;
+    openLightbox(currentIndex);
+  }
+
+  items.forEach((item, i) => {
+    item.addEventListener('click', () => {
+      const idx = visibleItems.indexOf(item);
+      if (idx !== -1) openLightbox(idx);
+    });
+  });
+
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev').addEventListener('click', () => navigate(-1));
+  document.getElementById('lightbox-next').addEventListener('click', () => navigate(1));
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
+  });
+})();
   </script>
 </body>
 </html>
