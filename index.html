@@ -1319,87 +1319,6 @@
 
     .event-link:hover { gap: 10px; }
 
-    /* =============================================
-       PROJECTS SECTION
-    ============================================= */
-    #projects {
-      background: linear-gradient(180deg, #07070d 0%, #0a0a0f 100%);
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .project-card {
-      background: var(--gradient-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      display: flex;
-      gap: 24px;
-      align-items: flex-start;
-      transition: all var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: var(--gradient-gold);
-      transform: scaleY(0);
-      transform-origin: top;
-      transition: transform 0.4s ease;
-    }
-
-    .project-card:hover::before { transform: scaleY(1); }
-
-    .project-card:hover {
-      border-color: var(--border-bright);
-      transform: translateX(6px);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-    }
-
-    .project-icon {
-      width: 56px; height: 56px;
-      border-radius: 14px;
-      background: var(--gold-subtle);
-      border: 1px solid var(--border-bright);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-
-    .project-content { flex: 1; min-width: 0; }
-
-    .project-title {
-      font-family: var(--font-heading);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-    }
-
-    .project-desc {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 14px;
-    }
-
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
     .tech-badge {
       font-family: var(--font-display);
       font-size: 9px;
@@ -2285,7 +2204,6 @@
         <a href="#about">About</a>
         <a href="#pillars">What We Do</a>
         <a href="#events">Events</a>
-        <a href="#projects">Projects</a>
         <a href="#team">Team</a>
         <a href="#contact">Contact</a>
         <a href="https://www.ieee.org/membership/join/index.html" target="_blank" class="nav-cta">Join IEEE CS</a>
@@ -2303,7 +2221,6 @@
     <a href="#about">About</a>
     <a href="#pillars">What We Do</a>
     <a href="#events">Events</a>
-    <a href="#projects">Projects</a>
     <a href="#team">Team</a>
     <a href="#achievements">Achievements</a>
     <a href="#contact">Contact</a>
@@ -2781,248 +2698,203 @@
       </div>
     </div>
   </section>
-
-  <!-- =============================================
-       PROJECTS SECTION
-  ============================================= -->
-  <section id="projects" class="section-pad">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Projects</div>
-        <h2 class="section-title">What We've <span>Built</span></h2>
-        <p class="section-subtitle">Our members don't just learn — they build. Here are some of the impactful projects our chapter has delivered.</p>
-        <div class="gold-divider"></div>
-      </div>
-
-    <div class="projects-grid">
-
-  <div class="project-card featured reveal">
-    <div class="project-icon"><i class="fa-solid fa-globe"></i></div>
-    <div class="project-content">
-      <div class="project-featured-badge"><i class="fa-solid fa-star"></i> Featured Project</div>
-      <h3 class="project-title">IEEE CS KDU Chapter Website</h3>
-      <p class="project-desc">A fully modern, responsive web presence for the IEEE Computer Society KDU Chapter, featuring events management, team showcases, project portfolios, and a sleek dark-themed design. Built by the chapter's web team to serve as the official digital hub for all chapter activities and communications.</p>
-      <div class="project-tech">
-        <span class="tech-badge">HTML5</span>
-        <span class="tech-badge">CSS3</span>
-        <span class="tech-badge">JavaScript</span>
-        <span class="tech-badge">Responsive Design</span>
-        <span class="tech-badge">UI/UX</span>
-      </div>
+  
+<!-- =============================================
+     TEAM SECTION
+============================================= -->
+<section id="team" class="section-pad">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Our Team</div>
+      <h2 class="section-title">Meet the <span>2025/26 Board</span></h2>
+      <p class="section-subtitle">The dedicated individuals who lead IEEE CS KDU with passion, vision, and an unwavering commitment to our members.</p>
+      <div class="gold-divider"></div>
     </div>
-  </div>
-
-  <div class="project-card reveal" style="opacity: 0.5; pointer-events: none;">
-    <div class="project-icon"><i class="fa-solid fa-clock"></i></div>
-    <div class="project-content">
-      <div class="project-featured-badge" style="background: #333; color: #aaa;"><i class="fa-solid fa-hourglass-half"></i> Coming Soon</div>
-      <h3 class="project-title">Next Project</h3>
-      <p class="project-desc">Something exciting is in the works. Stay tuned for our next chapter project.</p>
-      <div class="project-tech">
-        <span class="tech-badge">TBA</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="project-card reveal reveal-delay-1" style="opacity: 0.5; pointer-events: none;">
-    <div class="project-icon"><i class="fa-solid fa-clock"></i></div>
-    <div class="project-content">
-      <div class="project-featured-badge" style="background: #333; color: #aaa;"><i class="fa-solid fa-hourglass-half"></i> Coming Soon</div>
-      <h3 class="project-title">Next Project</h3>
-      <p class="project-desc">Something exciting is in the works. Stay tuned for our next chapter project.</p>
-      <div class="project-tech">
-        <span class="tech-badge">TBA</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="project-card reveal reveal-delay-2" style="opacity: 0.5; pointer-events: none;">
-    <div class="project-icon"><i class="fa-solid fa-clock"></i></div>
-    <div class="project-content">
-      <div class="project-featured-badge" style="background: #333; color: #aaa;"><i class="fa-solid fa-hourglass-half"></i> Coming Soon</div>
-      <h3 class="project-title">Next Project</h3>
-      <p class="project-desc">Something exciting is in the works. Stay tuned for our next chapter project.</p>
-      <div class="project-tech">
-        <span class="tech-badge">TBA</span>
-      </div>
-    </div>
-  </div>
-
-</div>
-    </div>
-  </section>
-
-  <!-- =============================================
-       TEAM SECTION
-  ============================================= -->
-  <section id="team" class="section-pad">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Our Team</div>
-        <h2 class="section-title">Meet the <span>2025/26 Board</span></h2>
-        <p class="section-subtitle">The dedicated individuals who lead IEEE CS KDU with passion, vision, and an unwavering commitment to our members.</p>
-        <div class="gold-divider"></div>
-      </div>
 
     <!-- EXCO Label -->
-<div style="text-align:center; margin-bottom: 24px;">
-  <span class="section-label">Executive Committee</span>
-</div>
+    <div style="text-align:center; margin-bottom: 24px;">
+      <span class="section-label">Executive Committee</span>
+    </div>
 
-<!-- EXCO Row 1: Chair, Vice Chair, Secretary -->
-<div class="team-exec" style="margin-bottom: 20px;">
-  <div class="member-card exec chair reveal">
-    <i class="chair-crown fa-solid fa-crown"></i>
-    <div class="member-avatar">
-      <div class="member-avatar-placeholder">C</div>
+    <!-- EXCO Row 1: Chair, Vice Chair, Secretary -->
+    <div class="team-exec" style="margin-bottom: 20px;">
+      <div class="member-card exec chair reveal">
+        <i class="chair-crown fa-solid fa-crown"></i>
+        <div class="member-avatar">
+          <img src="team/sunera.jpg" alt="Sunera Samuditha"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'member-avatar-placeholder\'>C</div>';" />
+        </div>
+        <div class="member-name">Sunera Samuditha</div>
+        <div class="member-role">Chairperson</div>
+        <div class="member-socials">
+          <a href="http://www.linkedin.com/in/sunerasamuditha" class="member-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="member-social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="member-card exec reveal reveal-delay-1">
+        <div class="member-avatar">
+          <img src="team/jalani.jpg" alt="Jalani Kadupitiya"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'member-avatar-placeholder\'>VC</div>';" />
+        </div>
+        <div class="member-name">Jalani Kadupitiya</div>
+        <div class="member-role">Vice Chairperson</div>
+        <div class="member-socials">
+          <a href="https://www.linkedin.com/in/jalani-kadupitiya-a55503286/" class="member-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="member-social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="member-card exec reveal reveal-delay-2">
+        <div class="member-avatar">
+          <img src="team/janudi.jpg" alt="Janudi Udugamasooriya"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'member-avatar-placeholder\'>S</div>';" />
+        </div>
+        <div class="member-name">Janudi Udugamasooriya</div>
+        <div class="member-role">Secretary</div>
+        <div class="member-socials">
+          <a href="#" class="member-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="member-social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
     </div>
-    <div class="member-name">Sunera Samuditha</div>
-    <div class="member-role">Chairperson</div>
-    <div class="member-socials">
-      <a href="http://www.linkedin.com/in/sunerasamuditha" class="member-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="#" class="member-social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+
+    <!-- EXCO Row 2: Treasurer, Asst Secretary, Webmaster -->
+    <div class="team-exec" style="margin-bottom: 48px;">
+      <div class="member-card exec reveal">
+        <div class="member-avatar">
+          <img src="team/pabadi.jpg" alt="Pabadi Dayawansa"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'member-avatar-placeholder\'>T</div>';" />
+        </div>
+        <div class="member-name">Pabadi Dayawansa</div>
+        <div class="member-role">Treasurer</div>
+        <div class="member-socials">
+          <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="member-social"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="member-card exec reveal reveal-delay-1">
+        <div class="member-avatar">
+          <img src="team/uththari.jpg" alt="Uththari Jayasekara"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'member-avatar-placeholder\'>AS</div>';" />
+        </div>
+        <div class="member-name">Uththari Jayasekara</div>
+        <div class="member-role">Assistant Secretary</div>
+        <div class="member-socials">
+          <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="member-social"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="member-card exec reveal reveal-delay-2">
+        <div class="member-avatar">
+          <img src="team/pamindu.jpg" alt="Pamindu Karunadasa"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'member-avatar-placeholder\'>WM</div>';" />
+        </div>
+        <div class="member-name">Pamindu Karunadasa</div>
+        <div class="member-role">Webmaster</div>
+        <div class="member-socials">
+          <a href="http://www.linkedin.com/in/pamindu-karunadasa" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="member-social"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
     </div>
+
+    <!-- BOD Label -->
+    <div style="text-align:center; margin-bottom: 24px;">
+      <span class="section-label">Board of Directors</span>
+    </div>
+
+    <!-- BOD Row -->
+    <div class="team-row" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 0;">
+      <div class="member-card reveal">
+        <div class="member-avatar">
+          <img src="team/yasith.jpg" alt="Yasith Peiris"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'member-avatar-placeholder\'>PV</div>';" />
+        </div>
+        <div class="member-name">Yasith Peiris</div>
+        <div class="member-role">Head of Public Visibility</div>
+        <div class="member-socials">
+          <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="member-card reveal reveal-delay-1">
+        <div class="member-avatar">
+          <img src="team/akila.jpg" alt="Akila Jayasinghe"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'member-avatar-placeholder\'>ED</div>';" />
+        </div>
+        <div class="member-name">Akila Jayasinghe</div>
+        <div class="member-role">Head of Editorial</div>
+        <div class="member-socials">
+          <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="member-card reveal reveal-delay-2">
+        <div class="member-avatar">
+          <img src="team/muditha.jpg" alt="Muditha Premachandra"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'member-avatar-placeholder\'>IE</div>';" />
+        </div>
+        <div class="member-name">Muditha Premachandra</div>
+        <div class="member-role">Head of Industry Engagement</div>
+        <div class="member-socials">
+          <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="member-card reveal">
+        <div class="member-avatar">
+          <img src="team/sadeep.jpg" alt="Sadeep Withana"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'member-avatar-placeholder\'>MD</div>';" />
+        </div>
+        <div class="member-name">Sadeep Withana</div>
+        <div class="member-role">Head of Membership Development</div>
+        <div class="member-socials">
+          <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="member-card reveal reveal-delay-1">
+        <div class="member-avatar">
+          <img src="team/ashen.jpg" alt="Ashen Etugala"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'member-avatar-placeholder\'>VM</div>';" />
+        </div>
+        <div class="member-name">Ashen Etugala</div>
+        <div class="member-role">Head of Volunteer Management</div>
+        <div class="member-socials">
+          <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="member-card reveal reveal-delay-2">
+        <div class="member-avatar">
+          <img src="team/kulindu.jpg" alt="Kulindu Liyanage"
+            style="width:100%; height:100%; object-fit:cover; display:block;"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'member-avatar-placeholder\'>LG</div>';" />
+        </div>
+        <div class="member-name">Kulindu Liyanage</div>
+        <div class="member-role">Head of Logistics</div>
+        <div class="member-socials">
+          <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+
   </div>
-
-  <div class="member-card exec reveal reveal-delay-1">
-    <div class="member-avatar">
-      <div class="member-avatar-placeholder">VC</div>
-    </div>
-    <div class="member-name">Jalani Kadupitiya</div>
-    <div class="member-role">Vice Chairperson</div>
-    <div class="member-socials">
-      <a href="https://www.linkedin.com/in/jalani-kadupitiya-a55503286/" class="member-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="#" class="member-social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-    </div>
-  </div>
-
-  <div class="member-card exec reveal reveal-delay-2">
-    <div class="member-avatar">
-      <div class="member-avatar-placeholder">S</div>
-    </div>
-    <div class="member-name">Janudi Udugamasooriya</div>
-    <div class="member-role">Secretary</div>
-    <div class="member-socials">
-      <a href="#" class="member-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="#" class="member-social" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-    </div>
-  </div>
-</div>
-
-<!-- EXCO Row 2: Treasurer, Asst Secretary, Webmaster -->
-<div class="team-exec" style="margin-bottom: 48px;">
-  <div class="member-card exec reveal">
-    <div class="member-avatar">
-      <div class="member-avatar-placeholder">T</div>
-    </div>
-    <div class="member-name">Pabadi Dayawansa</div>
-    <div class="member-role">Treasurer</div>
-    <div class="member-socials">
-      <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="#" class="member-social"><i class="fa-brands fa-github"></i></a>
-    </div>
-  </div>
-
-  <div class="member-card exec reveal reveal-delay-1">
-    <div class="member-avatar">
-      <div class="member-avatar-placeholder">AS</div>
-    </div>
-    <div class="member-name">Uththari Jayasekara</div>
-    <div class="member-role">Assistant Secretary</div>
-    <div class="member-socials">
-      <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="#" class="member-social"><i class="fa-brands fa-github"></i></a>
-    </div>
-  </div>
-
-  <div class="member-card exec reveal reveal-delay-2">
-    <div class="member-avatar">
-      <div class="member-avatar-placeholder">WM</div>
-    </div>
-    <div class="member-name">Pamindu Karunadasa</div>
-    <div class="member-role">Webmaster</div>
-    <div class="member-socials">
-      <a href="http://www.linkedin.com/in/pamindu-karunadasa" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="#" class="member-social"><i class="fa-brands fa-github"></i></a>
-    </div>
-  </div>
-</div>
-
-<!-- BOD Label -->
-<div style="text-align:center; margin-bottom: 24px;">
-  <span class="section-label">Board of Directors</span>
-</div>
-
-<!-- BOD Row -->
-<div class="team-row" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 0;">
-  <div class="member-card reveal">
-    <div class="member-avatar">
-      <div class="member-avatar-placeholder">PV</div>
-    </div>
-    <div class="member-name">Yasith Peiris</div>
-    <div class="member-role">Head of Public Visibility</div>
-    <div class="member-socials">
-      <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
-    </div>
-  </div>
-
-  <div class="member-card reveal reveal-delay-1">
-    <div class="member-avatar">
-      <div class="member-avatar-placeholder">ED</div>
-    </div>
-    <div class="member-name">Akila Jayasinghe</div>
-    <div class="member-role">Head of Editorial</div>
-    <div class="member-socials">
-      <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
-    </div>
-  </div>
-
-  <div class="member-card reveal reveal-delay-2">
-    <div class="member-avatar">
-      <div class="member-avatar-placeholder">IE</div>
-    </div>
-    <div class="member-name">Muditha Premachandra</div>
-    <div class="member-role">Head of Industry Engagement</div>
-    <div class="member-socials">
-      <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
-    </div>
-  </div>
-
-  <div class="member-card reveal">
-    <div class="member-avatar">
-      <div class="member-avatar-placeholder">MD</div>
-    </div>
-    <div class="member-name">Sadeep Withana</div>
-    <div class="member-role">Head of Membership Development</div>
-    <div class="member-socials">
-      <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
-    </div>
-  </div>
-
-  <div class="member-card reveal reveal-delay-1">
-    <div class="member-avatar">
-      <div class="member-avatar-placeholder">VM</div>
-    </div>
-    <div class="member-name">Ashen Etugala</div>
-    <div class="member-role">Head of Volunteer Management</div>
-    <div class="member-socials">
-      <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
-    </div>
-  </div>
-
-  <div class="member-card reveal reveal-delay-2">
-    <div class="member-avatar">
-      <div class="member-avatar-placeholder">LG</div>
-    </div>
-    <div class="member-name">Kulindu Liyanage</div>
-    <div class="member-role">Head of Logistics</div>
-    <div class="member-socials">
-      <a href="#" class="member-social"><i class="fa-brands fa-linkedin-in"></i></a>
-    </div>
-  </div>
-</div>
-    </div>
-  </section>
+</section>
 
   <!-- =============================================
        ACHIEVEMENTS / TIMELINE
@@ -3360,7 +3232,6 @@
             <a href="#about">About Us</a>
             <a href="#pillars">What We Do</a>
             <a href="#events">Events</a>
-            <a href="#projects">Projects</a>
             <a href="#team">Our Team</a>
             <a href="#achievements">Achievements</a>
             <a href="#contact">Contact</a>
