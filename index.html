@@ -3613,30 +3613,6 @@
         });
       });
     });
-
-    // =============================================
-    // CONTACT FORM (simulated)
-    // =============================================
-    document.getElementById('form-submit-btn').addEventListener('click', () => {
-      const fname = document.getElementById('fname').value.trim();
-      const email = document.getElementById('femail').value.trim();
-      const message = document.getElementById('fmessage').value.trim();
-
-      if (!fname || !email || !message) {
-        alert('Please fill in all required fields.');
-        return;
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-      }
-
-      document.getElementById('form-submit-btn').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    });
-
     // =============================================
     // NEWSLETTER
     // =============================================
