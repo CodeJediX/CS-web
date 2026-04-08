@@ -11,8 +11,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<!-- Elfsight Platform -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
 
   <style>
     /* =============================================
@@ -472,6 +474,21 @@
       background: var(--gold-subtle);
       transform: translateY(-3px);
     }
+    /* PULSING GOLD GLOW ON CARD HOVER */
+@keyframes goldPulse {
+  0%   { box-shadow: 0 0 8px rgba(250,164,26,0.3), 0 0 20px rgba(250,164,26,0.1); }
+  50%  { box-shadow: 0 0 20px rgba(250,164,26,0.6), 0 0 50px rgba(250,164,26,0.25); }
+  100% { box-shadow: 0 0 8px rgba(250,164,26,0.3), 0 0 20px rgba(250,164,26,0.1); }
+}
+
+.pillar-card:hover,
+.event-card:hover,
+.member-card:hover,
+.timeline-content:hover,
+.stat-card:hover {
+  animation: goldPulse 1.8s ease-in-out infinite;
+  border-color: var(--gold) !important;
+}
 
     /* =============================================
        HERO SECTION
@@ -510,14 +527,16 @@
 
     /* Grid lines */
     .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(250,164,26,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(250,164,26,0.04) 1px, transparent 1px);
-      background-size: 80px 80px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-    }
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(250,164,26,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(250,164,26,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
 
     .hero-content {
       position: relative;
@@ -2429,6 +2448,98 @@
       .nav-tagline { display: none; }
       .nav-divider { display: none; }
     }
+
+    /* =============================================
+   INSTAGRAM FEED SECTION
+============================================= */
+#instagram {
+  background: linear-gradient(180deg, var(--bg-deep) 0%, #07070d 100%);
+}
+
+.instagram-feed-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  padding: 40px 32px;
+  background: var(--bg-card);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Subtle gold glow on the wrap border */
+.instagram-feed-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(ellipse at top, rgba(250,164,26,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Center the actual elfsight widget */
+.instagram-feed-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(250,164,26,0.4);
+  box-shadow: 0 0 15px rgba(250,164,26,0.1),
+              0 0 30px rgba(250,164,26,0.07),
+              inset 0 0 20px rgba(250,164,26,0.03);
+  padding: 40px 32px;
+  background: var(--bg-card);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.instagram-feed-wrap:hover {
+  border-color: rgba(250,164,26,0.6);
+  box-shadow: 0 0 20px rgba(250,164,26,0.2),
+              0 0 50px rgba(250,164,26,0.1),
+              inset 0 0 30px rgba(250,164,26,0.05);
+  transition: all 0.4s ease;
+}
+
+.instagram-feed-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(ellipse at top, rgba(250,164,26,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.instagram-feed-wrap .elfsight-app-77da1afc-2d55-45c7-a4d5-13cf506b0e62 {
+  width: 100%;
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .instagram-feed-wrap {
+    padding: 20px 12px;
+    max-width: 100%;
+  }
+
+  .instagram-feed-wrap .elfsight-app-77da1afc-2d55-45c7-a4d5-13cf506b0e62 {
+    max-width: 100%;
+  }
+}
+@keyframes sparkPulse {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: scale(0.8);
+    box-shadow: 0 0 6px 1px rgba(250,164,26,0.5);
+  }
+  50%  { 
+    opacity: 1; 
+    transform: scale(1.3);
+    box-shadow: 0 0 14px 4px rgba(250,164,26,0.9);
+  }
+}
   </style>
 </head>
 
@@ -3397,7 +3508,23 @@
       </div>
     </div>
   </section>
+<!-- =============================================
+     INSTAGRAM FEED SECTION
+============================================= -->
+<section id="instagram" class="section-pad" style="background: linear-gradient(180deg, var(--bg-deep) 0%, #07070d 100%);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Instagram</div>
+      <h2 class="section-title">Follow Our <span>Journey</span></h2>
+      <p class="section-subtitle">Stay updated with our latest events, workshops, and behind-the-scenes moments.</p>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="instagram-feed-wrap reveal">
+<div class="elfsight-app-77da1afc-2d55-45c7-a4d5-13cf506b0e62" data-elfsight-app-lazy></div>
+    </div>
 
+  </div>
+</section>
   <!-- =============================================
        CONTACT SECTION
   ============================================= -->
@@ -3918,6 +4045,55 @@
     if (e.key === 'ArrowLeft') navigate(-1);
     if (e.key === 'ArrowRight') navigate(1);
   });
+})();
+
+// PARALLAX HERO GRID
+const heroGrid = document.querySelector('.hero-grid');
+const heroGlow1 = document.querySelector('.hero-glow-1');
+const heroGlow2 = document.querySelector('.hero-glow-2');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  if (scrollY < window.innerHeight) {
+    heroGrid.style.transform = `translateY(${scrollY * 0.25}px)`;
+    heroGlow1.style.transform = `translateY(${scrollY * 0.15}px)`;
+    heroGlow2.style.transform = `translateY(${scrollY * 0.1}px)`;
+  }
+});
+// =============================================
+// INSTAGRAM FEED — GLOW EFFECTS
+// =============================================
+// =============================================
+// INSTAGRAM FEED — BREATHING GLOW ONLY
+// =============================================
+(function() {
+  const wrap = document.querySelector('.instagram-feed-wrap');
+  if (!wrap) return;
+
+  let glowIntensity = 0;
+  let glowDirection = 1;
+
+  function breathingGlow() {
+    glowIntensity += 0.008 * glowDirection;
+
+    if (glowIntensity >= 1) glowDirection = -1;
+    if (glowIntensity <= 0) glowDirection = 1;
+
+    const alpha1 = 0.1 + glowIntensity * 0.2;
+    const alpha2 = 0.05 + glowIntensity * 0.1;
+    const spread1 = 15 + glowIntensity * 20;
+    const spread2 = 30 + glowIntensity * 40;
+
+    wrap.style.boxShadow = `
+      0 0 ${spread1}px rgba(250,164,26,${alpha1}),
+      0 0 ${spread2}px rgba(250,164,26,${alpha2}),
+      inset 0 0 20px rgba(250,164,26,0.03)
+    `;
+
+    requestAnimationFrame(breathingGlow);
+  }
+
+  breathingGlow();
 })();
   </script>
 </body>
